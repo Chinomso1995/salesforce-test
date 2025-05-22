@@ -56,4 +56,3 @@ public with sharing class LibraryBookLoanHandler {
       update books.values();
     }
   }
-  
