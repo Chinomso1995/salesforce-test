@@ -1,0 +1,39 @@
+<template>
+    <lightning-card title="Book Search">
+        <div class="slds-p-around_medium">
+            <lightning-input
+                label="Search by title or author"
+                value={searchTerm}
+                onchange={handleInputChange}>
+            </lightning-input>
+            <lightning-input
+                type="number"
+                label="Page Size"
+                value={pageSize}
+                onchange={handlePageSizeChange}
+                class="slds-m-top_small">
+            </lightning-input>
+            <lightning-input
+                type="number"
+                label="Page Number"
+                value={pageNumber}
+                onchange={handlePageNumberChange}
+                class="slds-m-top_small">
+            </lightning-input>
+            <lightning-button
+                variant="brand"
+                label="Search"
+                onclick={handleSearch}
+                class="slds-m-top_small">
+            </lightning-button>
+        </div>
+        <template if:true={books}>
+            <lightning-datatable
+                key-field="Id"
+                data={books}
+                columns={columns}
+                onrowaction={handleRowAction}>
+            </lightning-datatable>
+        </template>
+    </lightning-card>
+</template>
